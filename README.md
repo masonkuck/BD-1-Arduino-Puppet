@@ -1,6 +1,9 @@
 # BD-1 Arduino Puppet Controller
 
-Arduino firmware for a animatronic BD-1 droid (MrBaddeley design), controlled by a handheld gimbal/knob puppet controller. Supports a real-time puppet mode and an autonomous idle animation mode.
+Arduino firmware for a animatronic BD-1 droid ([MrBaddeley](https://www.patreon.com/c/mrbaddeley/posts) design), controlled by a handheld gimbal/knob puppet controller. Supports a real-time puppet mode and an autonomous idle animation mode.
+
+> [!WARNING]
+> While I have done a lot of testing, this project is largely still in progress. My main reason for pushing to GitHub is for version control, I probably wont be supporting this with requests however feel free to fork it and make changes. The sound from MrBaddeley's design is not present, because I have plans beyond it sitting on a desk so the sound is likely going to look very different.
 
 ## Hardware
 
