@@ -10,35 +10,57 @@ Arduino firmware for a animatronic BD-1 droid (MrBaddeley design), controlled by
 | Servo driver | PCA9685 16-channel PWM (I2C, address 0x40) |
 | Controller input | 3-axis gimbal + 3 knob potentiometers, 4 buttons |
 
-### Servos
+## Pinout
 
-| PCA9685 Channel | Servo |
-|---|---|
-| Ch 1 | Head turn (left/right) |
-| Ch 2 | Head tilt — left servo |
-| Ch 3 | Head tilt — right servo (reversed) |
-| Ch 4 | Neck nod (reserved) |
-| Ch 5 | Eye blink |
-| Ch 6 | Holoprojector pivot |
-| Ch 14 | Ear left |
-| Ch 15 | Ear right (reversed) |
+### I2C — Arduino Mega → PCA9685
 
-### Controller Wiring
-
-| Pin | Input | Function |
+| Mega Pin | PCA9685 Pin | Notes |
 |---|---|---|
-| A1 | Joystick top knob | Eye open/close |
-| A3 | Joystick forward/back | Head tilt |
-| A5 | Knob | Holoprojector |
-| A7 | Knob | Ear left |
-| A9 | Knob | Ear right |
-| A11 | Joystick left/right | Head turn |
-| D3 | Button | Toggle IDLE ↔ CONTROLLER mode |
-| D5 | Button | Reserved |
-| D7 | Button | Toggle ears linked/independent |
-| D9 | Button | Reserved |
+| Pin 20 SDA | SDA | |
+| Pin 21 SCL | SCL | |
+| 5V | VCC | |
+| GND | GND | Common ground with servo PSU |
 
-I2C to PCA9685 uses the Mega's dedicated pins: SDA=20, SCL=21.
+### PCA9685 — Servo Channels
+
+| Channel | Servo | Notes |
+|---|---|---|
+| Ch 1 | Head Turn | |
+| Ch 2 | Head Tilt L | |
+| Ch 3 | Head Tilt R | Reversed |
+| Ch 4 | Neck Nod | Reserved — not wired yet |
+| Ch 5 | Eye Blink | |
+| Ch 6 | Holoprojector | |
+| Ch 7–13 | — | Unused |
+| Ch 14 | Ear Left | |
+| Ch 15 | Ear Right | Reversed |
+
+V+ → Servo power supply positive (separate from Arduino 5V)  
+GND → Servo power supply negative (common ground with Arduino)
+
+### Analog — Potentiometers
+
+Wiper to pin, ends to 5V and GND.
+
+| Mega Pin | Pot | Notes |
+|---|---|---|
+| A1 | Eye open/close | Joystick top knob |
+| A3 | Head Tilt | Joystick forward/back axis |
+| A5 | Holoprojector | Knob |
+| A7 | Ear Left | Knob |
+| A9 | Ear Right | Knob |
+| A11 | Head Turn | Joystick left/right axis |
+
+### Digital — Buttons
+
+Other side of button to GND, configured INPUT_PULLUP.
+
+| Mega Pin | Button | Notes |
+|---|---|---|
+| D3 | Mode Switch | Toggles IDLE ↔ CONTROLLER |
+| D5 | Sound 1 | Reserved — no sound yet |
+| D7 | Ear Link | Toggle ears linked/independent |
+| D9 | Sound 2 | Reserved — no sound yet |
 
 ## Modes
 
