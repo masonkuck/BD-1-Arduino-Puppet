@@ -1,0 +1,54 @@
+```
+╔══════════════════════════════════════════════════════════════════╗
+║              BD-1 PINOUT — Arduino Mega 2560 Pro Mini            ║
+╠══════════════════════════════════════════════════════════════════╣
+║  I2C → PCA9685                                                   ║
+║  ┌─────────────┬──────────────┬────────────────────────────────┐ ║
+║  │ Mega Pin    │ PCA9685 Pin  │ Notes                          │ ║
+║  ├─────────────┼──────────────┼────────────────────────────────┤ ║
+║  │ Pin 20 SDA  │ SDA          │                                │ ║
+║  │ Pin 21 SCL  │ SCL          │                                │ ║
+║  │ 5V          │ VCC          │                                │ ║
+║  │ GND         │ GND          │ Common ground with servo PSU   │ ║
+║  └─────────────┴──────────────┴────────────────────────────────┘ ║
+╠══════════════════════════════════════════════════════════════════╣
+║  PCA9685 Breakout → Servos                                       ║
+║  ┌─────────────┬──────────────┬────────────────────────────────┐ ║
+║  │ Channel     │ Servo        │ Notes                          │ ║
+║  ├─────────────┼──────────────┼────────────────────────────────┤ ║
+║  │ Ch 1        │ Head Turn    │                                │ ║
+║  │ Ch 2        │ Head Tilt L  │                                │ ║
+║  │ Ch 3        │ Head Tilt R  │ Reversed                       │ ║
+║  │ Ch 4        │ Neck Nod     │ Reserved — not wired yet       │ ║
+║  │ Ch 5        │ Eye Blink    │                                │ ║
+║  │ Ch 6        │ Holoprojector│                                │ ║
+║  │ Ch 7–13     │ —            │ Unused                         │ ║
+║  │ Ch 14       │ Ear Left     │                                │ ║
+║  │ Ch 15       │ Ear Right    │ Reversed                       │ ║
+║  └─────────────┴──────────────┴────────────────────────────────┘ ║
+║  V+  → Servo power supply positive (separate from Arduino 5V)    ║
+║  GND → Servo power supply negative (common ground with Arduino)  ║
+╠══════════════════════════════════════════════════════════════════╣
+║  Analog → Potentiometers (wiper to pin, ends to 5V and GND)      ║
+║  ┌─────────────┬──────────────┬────────────────────────────────┐ ║
+║  │ Mega Pin    │ Pot          │ Notes                          │ ║
+║  ├─────────────┼──────────────┼────────────────────────────────┤ ║
+║  │ A1          │ Spare        │ Joystick top knob — reserved   │ ║
+║  │ A3          │ Head Tilt    │ Joystick forward/back axis     │ ║
+║  │ A5          │ Holoprojector│ Knob                           │ ║
+║  │ A7          │ Ear Left     │ Knob                           │ ║
+║  │ A9          │ Ear Right    │ Knob                           │ ║
+║  │ A11         │ Head Turn    │ Joystick left/right axis       │ ║
+║  └─────────────┴──────────────┴────────────────────────────────┘ ║
+╠══════════════════════════════════════════════════════════════════╣
+║  Digital → Buttons (other side of button to GND, INPUT_PULLUP)   ║
+║  ┌─────────────┬──────────────┬────────────────────────────────┐ ║
+║  │ Mega Pin    │ Button       │ Notes                          │ ║
+║  ├─────────────┼──────────────┼────────────────────────────────┤ ║
+║  │ D3          │ Mode Switch  │ Toggles IDLE ↔ CONTROLLER      │ ║
+║  │ D5          │ Sound 1      │ Reserved — no sound yet        │ ║
+║  │ D7          │ Ear Link     │ Toggle ears linked/independent │ ║
+║  │ D9          │ Sound 3      │ Reserved — no sound yet        │ ║
+║  └─────────────┴──────────────┴────────────────────────────────┘ ║
+╚══════════════════════════════════════════════════════════════════╝
+```
